@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://todo-tdd-staging.datazoom.tech/*']
+CSRF_TRUSTED_ORIGINS = ['http://todo-tdd-staging.datazoom.tech']
 
 # Application definition
 

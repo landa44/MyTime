@@ -8,13 +8,13 @@ REPO_URL = 'https://github.com/landa44/Mastering_TDD.git'
 def _update_database(source_folder):
     run(
         f'cd {source_folder}'
-        ' && ../virtualenv/bin/python/manage.py migrate --noinput'
+        ' && ../virtualenv/bin/python manage.py migrate --noinput'
     )
 
 def _update_static_files(source_folder):
     run(
         f'cd {source_folder}'
-        ' && ../virtualenv/bin/python3 manage.py collectstatic --noinput'
+        ' && ../virtualenv/bin/python manage.py collectstatic --noinput'
     )
 
 def _update_virtualenv(source_folder):

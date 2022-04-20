@@ -1,5 +1,4 @@
 from random import random
-from django.conf import settings
 from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
 import random
@@ -15,7 +14,7 @@ def _update_database(source_folder):
 def _update_static_files(source_folder):
     run(
         f'cd {source_folder}'
-        ' && ../virtualenv/bin/python manage.py collectstatic --noinput'
+        ' && ../virtualenv/bin/python3 manage.py collectstatic --noinput'
     )
 
 def _update_virtualenv(source_folder):

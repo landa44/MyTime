@@ -27,8 +27,18 @@ class FunctionalTest(StaticLiveServerTestCase):
       except (AssertionError, WebDriverException) as e:
         if time.time() - start_time > MAX_WAIT:
           raise e
-        time.sleep(0.5)          
+        time.sleep(0.5)         
+
+  def wait_for(self, function):
+    start_time = time.time()
+    
+    while True:
+      try:
+        return function()
+      except (AssertionError, WebDriverException) as e:
+        if time.time() - start_time > MAX_WAIT:
+          raise e
+        time.sleep(0.5)     
 
   def tearDown(self):
     self.browser.quit()
-    

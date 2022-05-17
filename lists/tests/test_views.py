@@ -3,6 +3,8 @@ from ..views import *
 from django.urls import resolve
 from django.http import HttpRequest
 from django.utils.html import escape
+from lists.forms import ItemForm
+
 class HomePageTest(TestCase):
   def test_uses_home_template(self):
     response = self.client.get('/')
@@ -11,6 +13,10 @@ class HomePageTest(TestCase):
   def test_only_save_item_when_necessary(self):
     self.client.get("/")
     self.assertEqual(Item.objects.count(), 0)
+
+  def test_home_page_uses_item_form(self):
+    response = self.client.get('/')
+    self.assertIsInstance(response.context['form'], ItemForm)
 class ListViewTest(TestCase):
   def test_uses_list_template(self):
     list_ = List.objects.create()

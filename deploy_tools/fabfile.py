@@ -3,7 +3,7 @@ from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
 import random
 
-REPO_URL = 'https://github.com/landa44/Mastering_TDD.git'
+REPO_URL = 'https://github.com/landa44/MyTime.git'
 
 def _update_database(source_folder):
     run(
